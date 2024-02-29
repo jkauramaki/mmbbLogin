@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MMBB - login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link href="./stylesheets/frontPageStyles.css" rel="stylesheet" type="text/css"/>
+
+  </head>
+
+  <body>
+    <div id="header">
+      <img id="gif" src="./images/coe.gif" />
+    </div>
+    <div id="userName"></div>
+    <div id="container">
+      <button id="loginButton">Login here</button>
+      <button id="registerButton">Register here</button>
+    </div>
+    <div id="footer">
+      <a href="https://www.jyu.fi/hytk/fi/laitokset/mutku/en/coe-mmbb">MMBB - CoE</a>
+    </div>
+  </body>
+
+  <script src="./utils/manageCookies.js"></script>
+  <script src="./utils/studyLinks.js"></script>
+  <script src="./utils/studyIDs.js"></script>
+
+
+  <script>  
+
+  //var urlRedirect = studyLinks['chooseBatteryLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
+  document.getElementById("loginButton").addEventListener("click", function(){
+
+    var queryStringIndex = window.location.search;
+    var urlParamsIndex = new URLSearchParams(queryStringIndex);
+       
+    //Check tasks that have already been done
+    var clientId = urlParamsIndex.get('client_id')
+    var challenge = urlParamsIndex.get('code_challenge')
+    var stateValue = urlParamsIndex.get('state')
+
+    location.href = 'http://localhost:9011/oauth2/authorize?client_id='+clientId+'&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth-redirect&scope=offline_access&state='+stateValue+'&code_challenge='+challenge+'&code_challenge_method=S256'
+
+  })
+
+  document.getElementById("registerButton").addEventListener("click", function(){
+
+    var clientID = "6d3de458-bc96-475c-a5be-a84acbbfa6a3";
+    location.href = 'http://localhost:9011/oauth2/register?client_id=' + clientID + '&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth-redirect'
+
+  })
+
+
+  </script>
+
+
+
+
+
+
+</html>

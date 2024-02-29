@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MMBB - Choose battery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link href="./stylesheets/frontPageStyles.css" rel="stylesheet" type="text/css"/>
+    <script src="./utils/manageCookies.js"></script>
+    <script src="./utils/studyLinks.js"></script>
+    <script src="./utils/studyIDs.js"></script>
+
+  </head>
+
+  <body>
+    <div id="header">
+      <span id="buttonOpen" onclick="openNav()">&#9776;</span>
+      <img id="gif" src="./images/coe.gif" />
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+      <div id="header">
+        <img id="gifSideNav" src="./images/coe.gif" />
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      </div>
+      <div id="userName"></div>
+      <button id="logoutBtn" onclick="signOut()">Logout</button>
+    </div>
+
+    <div id="langs">
+      <button id="langEng">English</button>
+      <button id="langFi">Finnish</button>
+    </div>
+    <div id="container">
+      <div id="choicesEng">
+        <div id="taskMovement"><div id="linkToMovement" href=""><img src="./images/dance.svg"/></div><div id="movementTaskIcon"></div></div>
+        <div id="taskSinging"><div id="linkToSinging"><img src="./images/singing.svg"/></div><div id="singingTaskIcon"></div></div>
+        <div id="taskEmotion"><div id="linkToEmotion"><img src="./images/emotion.svg"/></div><div id="emotionTaskIcon1"></div></div>
+        <div id="taskEmotionAdaptive"><div id="linkToEmotionAdaptive"><img src="./images/emotion.svg"/></div><div id="emotionTaskIcon1"></div></div>
+        <div id="taskEmotionAdaptive2"><div id="linkToEmotionAdaptive2"><img src="./images/emotion.svg"/></div><div id="emotionTaskIcon2"></div></div>
+        <div id="taskRhythm"><div id="linkToRhythm"><img src="./images/rhythm.svg"/></div><div id="rhythmTaskIcon"></div></div>
+        <div id="taskSharedMeasures"><div id="linkToSurvey"><img src="./images/survey.svg"/></div><div id="surveyTaskIcon"></div></div>
+        <div id="taskMBEMA"><div id="linkToMBEMA"><img src="./images/mbemaLogo.svg"/></div><div id="mbemaTaskIcon"></div></div>
+      </div>
+    </div>
+
+    <div id="footer"
+      <a href="https://www.jyu.fi/hytk/fi/laitokset/mutku/en/coe-mmbb">MMBB - CoE</a>
+    </div>
+
+  </body>
+
+  <script src="./utils/langFetch.js"></script>
+  <script src="./utils/translations.js"></script>
+  <script src="./utils/manageCookies.js"></script>
+
+  <script src="./chooseBattery.js"></script>
+
+</html>
