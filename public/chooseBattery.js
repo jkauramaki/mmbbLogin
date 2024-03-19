@@ -10,9 +10,9 @@
       //Check tasks that have already been done
       var clientID = getCookie('clientID')
       if(clientID !== null){
-        location.href = "http://localhost:9011/oauth2/logout/?client_id=" + clientID
+        location.href = "https://mmbb.ltdk.helsinki.fi:9111/oauth2/logout/?client_id=" + clientID
       } else {
-        location.href = "http://localhost:3000"
+        location.href = "https://mmbb.ltdk.helsinki.fi:9111/oauth2/logout/"
       }
     }
 
