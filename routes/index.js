@@ -40,6 +40,13 @@ router.get('/', function (req, res, next) {
   console.log(clientId);
   console.log(lang)
   console.log(studyID)
+
+  if(lang==undefined){
+    var lang = "eng"
+  }
+  if(studyID==undefined){
+    var studyID= "main"
+  }
   //res.render('index', {user: req.session.user, title: 'Test', clientId: clientId, challenge: challenge, stateValue: stateValue, fusionAuthURL: fusionAuthURL});
 
   //Directly to auth page
