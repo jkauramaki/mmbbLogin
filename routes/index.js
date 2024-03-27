@@ -33,13 +33,19 @@ router.get('/', function (req, res, next) {
   // Store the PKCE verifier in session
   req.session.verifier = pkce_pair['code_verifier'];
   const challenge = pkce_pair['code_challenge'];
+
+  var lang = req.query.lang;
+  var studyID = req.query.studyID;
+
   console.log(clientId);
+  console.log(lang)
+  console.log(studyID)
   //res.render('index', {user: req.session.user, title: 'Test', clientId: clientId, challenge: challenge, stateValue: stateValue, fusionAuthURL: fusionAuthURL});
 
   //Directly to auth page
   //res.redirect(302, 'http://localhost:9011/oauth2/authorize?client_id='+clientId+'&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A1052%2Foauth-redirect&scope=offline_access&state='+stateValue+'&code_challenge='+challenge+'&code_challenge_method=S256');
   //res.redirect(302, 'http://localhost:3000/oauth2/authorize?client_id='+clientId+'&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth-redirect&scope=offline_access&state='+stateValue+'&code_challenge='+challenge+'&code_challenge_method=S256');
-  res.redirect(302, 'https://mmbb.ltdk.helsinki.fi/initial.html?client_id='+clientId+'&response_type=code&redirect_uri=https%3A%2F%2Fmmbb.ltdk.helsinki.fi%2Foauth-redirect&scope=offline_access&state='+stateValue+'&code_challenge='+challenge+'&code_challenge_method=S256');
+  res.redirect(302, 'https://mmbb.ltdk.helsinki.fi/initial.html?client_id='+clientId+'&response_type=code&redirect_uri=https%3A%2F%2Fmmbb.ltdk.helsinki.fi%2Foauth-redirect&scope=offline_access&state='+stateValue+'&code_challenge='+challenge+'&code_challenge_method=S256'+'&lang='+lang+'&studyID='+studyID);
 
 });
 
@@ -54,8 +60,14 @@ router.get('/postreg', function (req, res, next) {
   const challenge = pkce_pair['code_challenge'];
   console.log(clientId);
 
+  var lang = req.query.lang;
+  var studyID = req.query.studyID;
+
+  console.log(lang)
+  console.log(studyID)
+
   //Directly to auth page
-  res.redirect(302, 'https://mmbb.ltdk.helsinki.fi:9111/oauth2/authorize?client_id='+clientId+'&response_type=code&redirect_uri=https%3A%2F%2Fmmbb.ltdk.helsinki.fi%2Foauth-redirect&scope=offline_access&state='+stateValue+'&code_challenge='+challenge+'&code_challenge_method=S256');
+  res.redirect(302, 'https://mmbb.ltdk.helsinki.fi:9111/oauth2/authorize?client_id='+clientId+'&response_type=code&redirect_uri=https%3A%2F%2Fmmbb.ltdk.helsinki.fi%2Foauth-redirect&scope=offline_access&state='+stateValue+'&code_challenge='+challenge+'&code_challenge_method=S256'+'&lang='+lang+'&studyID='+studyID);
 
 });
 
@@ -71,12 +83,19 @@ router.get('/oauth-redirect', function (req, res, next) {
     return;
   }
 
+  console.log("Parameters here:")
+  var lang = req.query.lang;
+  var studyID = req.query.studyID;
+
+  console.log(lang)
+  console.log(studyID)
+
 // tag::exchangeOAuthCode[]
 // This code stores the user in a server-side session
  client.exchangeOAuthCodeForAccessTokenUsingPKCE(req.query.code,
                                                  clientId,
                                                  clientSecret,
-                                                 'https://mmbb.ltdk.helsinki.fi/oauth-redirect',
+                                                 'https://mmbb.ltdk.helsinki.fi/oauth-redirect?studyID='+studyID+'&lang='+lang,
                                                  req.session.verifier)
 // end::exchangeOAuthCode[]
       .then((response) => {
@@ -93,7 +112,12 @@ router.get('/oauth-redirect', function (req, res, next) {
         console.log("Eu aqui")
         console.log(response.response.user.id)
         console.log(clientId)
-        res.redirect(302, '/chooseBattery.html?user=' + response.response.user.id + "&clientID=" + clientId);
+         
+        //var queryStringIndex = window.location.search;
+        //var urlParamsIndex = new URLSearchParams(queryStringIndex);
+
+        res.redirect(302, '/chooseBattery.html?user=' + response.response.user.id + "&clientID=" + clientId + "&lang=" + lang + "&studyID=" + studyID);
+
       }).catch((err) => {console.log("in error"); 
         console.error(JSON.stringify(err));});
 });
