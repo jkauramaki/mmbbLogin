@@ -102,7 +102,7 @@ router.get('/oauth-redirect', function (req, res, next) {
  client.exchangeOAuthCodeForAccessTokenUsingPKCE(req.query.code,
                                                  clientId,
                                                  clientSecret,
-                                                 'https://mmbb.ltdk.helsinki.fi/oauth-redirect,
+                                                 'https://mmbb.ltdk.helsinki.fi/oauth-redirect',
                                                  req.session.verifier)
 // end::exchangeOAuthCode[]
       .then((response) => {
