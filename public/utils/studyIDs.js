@@ -7,5 +7,6 @@ var studyIDtasks = {
     "emotionAdaptive":  ["EmotionAdaptive", "EmotionAdaptive2", "SharedMeasures"],
     "accelClass":  ["Movement"],
     "movementWhole":  ["Movement", "Rhythm", "SharedMeasures"],
-    "alicia": ["Rhythm"]
+    "alicia": ["Rhythm"],
+    "edsync": ["Rhythm", "SharedMeasures"]
   }
