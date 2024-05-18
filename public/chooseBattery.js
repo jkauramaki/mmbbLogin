@@ -1,3 +1,4 @@
+console.log("a")
     function openNav() {
       document.getElementById("mySidenav").style.width = "100%";
     }
@@ -55,6 +56,7 @@
     if(studyID == undefined){
       var studyID = "main"
     }
+    var version = studyIDtasks[studyID]["version"]
 
     //Set cookie for client
     var clientID = getCookie("clientID") 
@@ -70,7 +72,7 @@
       location.href = urlRedirect
     }
 
-    var studyIDtasksRender = studyIDtasks[studyID]
+    var studyIDtasksRender = studyIDtasks[studyID]['timeline']
 
     for(a in studyIDtasksRender){
       document.getElementById("task" + studyIDtasksRender[a]).style.display = "block"
@@ -87,6 +89,21 @@
     document.getElementById("surveyTaskIcon").innerHTML = taskIcons['survey'][lang]
     document.getElementById("mbemaTaskIcon").innerHTML = taskIcons['MBEMA'][lang]
     document.getElementById("rhythmTaskIcon").innerHTML = taskIcons['rhythm'][lang]
+
+
+    //Add estimated time
+    if(version == "short"){
+      document.getElementById("movementTaskIconTime").innerHTML = taskIcons['movementTime'][lang]
+      document.getElementById("singingTaskIconTime").innerHTML = taskIcons['singingTime'][lang]
+      document.getElementById("emotionTaskIcon2Time").innerHTML = taskIcons['emotion2Time'][lang]
+      Array.from(document.querySelectorAll("#emotionTaskIcon1Time")).map(i => i.innerHTML = taskIcons['emotion1Time'][lang])
+      document.getElementById("surveyTaskIconTime").innerHTML = taskIcons['surveyTime'][lang]
+      document.getElementById("mbemaTaskIconTime").innerHTML = taskIcons['MBEMATime'][lang]
+      document.getElementById("rhythmTaskIconTime").innerHTML = taskIcons['rhythmTime'][lang]
+    } else {
+      console.log("long")
+    }
+    //End of add estimated time
 
     document.getElementById("langEng").onclick = function(){
       changeLangURL("eng", studyID)

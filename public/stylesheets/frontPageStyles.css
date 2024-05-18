@@ -78,6 +78,9 @@ img{
   text-align: center;
   width: 30%;
 }
+#movementTaskIconTime, #singingTaskIconTime, #emotionTaskIcon1Time, #emotionTaskIcon2Time, #rhythmTaskIconTime, #surveyTaskIconTime, #mbemaTaskIconTime {
+  font-size: 12px;
+}
 #instruction{
   display: flex;
   align-items: center;
