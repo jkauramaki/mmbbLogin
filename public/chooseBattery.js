@@ -46,6 +46,7 @@ console.log("a")
     })
 
     var lang = urlParamsIndex.get('lang')
+    var uniqueID = urlParamsIndex.get('uniqueID')
 
     if(lang == undefined){
       var lang = 'eng'
@@ -68,7 +69,7 @@ console.log("a")
 
     function changeLangURL(lang, studyID){
       redir =  window.location.origin;
-      var urlRedirect = redir + "/chooseBattery.html?lang=" + lang + "&studyID=" + studyID + '&user=' + userID;
+      var urlRedirect = redir + "/chooseBattery.html?lang=" + lang + "&studyID=" + studyID + '&user=' + userID + '&uniqueID=' + uniqueID; 
       location.href = urlRedirect
     }
 
@@ -118,35 +119,35 @@ console.log("a")
         console.log(userID)
         //document.getElementById("userName").innerHTML = "Hello, " + user.displayName
         document.getElementById("linkToMovement").onclick = function(){
-          var movementRedirect = studyLinks['movementLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID;
+          var movementRedirect = studyLinks['movementLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = movementRedirect
         }
         document.getElementById("linkToEmotion").onclick = function(){
-          var emotionRedirect = studyLinks['emotionLink'] + '?lang=' + lang + '&user=' + userID  + '&studyID=' + studyID;
+          var emotionRedirect = studyLinks['emotionLink'] + '?lang=' + lang + '&user=' + userID  + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = emotionRedirect
         }
         document.getElementById("linkToEmotionAdaptive").onclick = function(){
-          var emotionRedirect = studyLinks['emotionAdaptiveLink'] + '?lang=' + lang + '&user=' + userID + '&part=One' + '&studyID=' + studyID;
+          var emotionRedirect = studyLinks['emotionAdaptiveLink'] + '?lang=' + lang + '&user=' + userID + '&part=One' + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = emotionRedirect
         }
         document.getElementById("linkToEmotionAdaptive2").onclick = function(){
-          var emotionRedirect = studyLinks['emotionAdaptiveLink'] + '?lang=' + lang + '&user=' + userID + '&part=Two' + '&studyID=' + studyID;
+          var emotionRedirect = studyLinks['emotionAdaptiveLink'] + '?lang=' + lang + '&user=' + userID + '&part=Two' + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = emotionRedirect
         }
         document.getElementById("taskSharedMeasures").onclick = function(){
-          var sharedDirect = studyLinks['sharedLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID;
+          var sharedDirect = studyLinks['sharedLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = sharedDirect
         }
         document.getElementById("taskMBEMA").onclick = function(){
-          var mbemaDirect = studyLinks['mbema'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID;
+          var mbemaDirect = studyLinks['mbema'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = mbemaDirect
         }
         document.getElementById("taskSinging").onclick = function(){
-          var singingDirect = studyLinks['singingLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID;
+          var singingDirect = studyLinks['singingLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = singingDirect
         }
         document.getElementById("taskRhythm").onclick = function(){
-          var rhythmDirect = studyLinks['rhythmLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID;
+          var rhythmDirect = studyLinks['rhythmLink'] + '?lang=' + lang + '&user=' + userID + '&studyID=' + studyID + '&uniqueID=' + uniqueID;
           location.href = rhythmDirect
         }
       } else {
