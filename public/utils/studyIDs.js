@@ -32,7 +32,7 @@ var studyIDtasks = {
   "edsync": {"timeline": ["Rhythm", "SharedMeasures"],
              "version": "full"
   },
-  "tempo": {"timeline": ["Survey", "Rhythm", "Movement"],
+  "tempo": {"timeline": ["SharedMeasures", "Rhythm", "Movement"],
             "version": "full"
   }
 }
