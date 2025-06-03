@@ -41,4 +41,7 @@ var studyIDtasks = {
   "mahku": {"timeline": ["Singing", "Emotion", "Rhythm", "MBEMA"],
           "version": "full"
   },
+  "funchinese": {"timeline": ["Movement", "SharedMeasures", "Singing", "Rhythm", "MBEMA"],
+          "version": "full"
+  },
 }
